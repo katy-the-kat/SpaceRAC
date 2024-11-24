@@ -1,13 +1,9 @@
-import os
-import subprocess
-import docker
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify
-from flask_socketio import SocketIO, emit
+from flask import Flask, render_template, request, redirect, url_for, session
+from flask_socketio import SocketIO
 
 app = Flask(__name__)
 app.secret_key = 'donteditthis'
 socketio = SocketIO(app)
-client = docker.from_env()
 users = {'admin': 'password123'}
 tmate_link = 'https://tmate.io/t/x' 
 # To get the tmate link do `apt install tmate && tmate -F &&` and copying the websession link.
@@ -60,4 +56,3 @@ def logout():
 
 if __name__ == '__main__':
     socketio.run(app, debug=True, host='0.0.0.0', port=8080)
-
