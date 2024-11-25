@@ -18,6 +18,7 @@ body {
     color: white;
     padding: 20px;
     box-sizing: border-box;
+    transition: transform 0.3s ease;
 }
 
 #sidebar h2, .sidebar h2 {
@@ -202,16 +203,53 @@ h1, h3 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    #sidebar, .sidebar {
-        width: 200px; /* Reduce sidebar width on smaller screens */
+    #menu-toggle {
+        display: block; /* Show menu toggle button */
     }
-    
-    #console-container {
-        margin-left: 200px; /* Adjust content for smaller sidebar */
+
+    #sidebar {
+        width: 200px; /* Reduce sidebar width on smaller screens */
+        transform: translateX(-100%); /* Hidden by default on mobile */
+        position: fixed;
+        z-index: 100; /* Sidebar on top of content */
+    }
+
+    #sidebar.active {
+        transform: translateX(0); /* Slide sidebar into view */
+    }
+
+    .main-content {
+        margin-left: 0; /* Remove fixed margin for main content */
+        padding: 20px;
     }
 
     iframe {
-        height: 400px; /* Adjust iframe size for smaller screens */
+        height: auto; /* Full height iframe for small screens */
+        width: 100%;
+    }
+
+    .login-container {
+        margin: 50px auto; /* Reduced margin for smaller screens */
+    }
+
+    .sidebar a {
+        font-size: 1em; /* Adjust link size for mobile */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    /* Adjust content container width for small screens */
+    .console-container, .dashboard-container {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    /* Console Input and Output adjustment */
+    #console {
+        height: 250px; /* Smaller console area on mobile */
+    }
+
+    #inputBox {
+        font-size: 1em; /* Adjust font size of input for mobile */
     }
 }
-
