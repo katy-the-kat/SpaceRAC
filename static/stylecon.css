@@ -18,6 +18,7 @@ body {
     color: white;
     padding: 20px;
     box-sizing: border-box;
+    transition: transform 0.3s ease;
 }
 
 #sidebar h2 {
@@ -41,19 +42,19 @@ body {
     background-color: #00509e;
 }
 
-/* Main content area with adjusted layout */
+/* Main content area */
 #console-container {
-    margin-left: 250px; /* Space for sidebar */
+    margin-left: 250px;
     padding: 20px;
-    max-width: calc(100% - 250px); /* Ensure it adjusts dynamically */
+    max-width: calc(100% - 250px);
     background-color: #1d1d1d;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-top: 20px;
-    overflow: hidden; /* Prevent overflow issues */
+    overflow: hidden;
 }
 
-/* Styling the iframe to ensure it takes full width */
+/* Styling the iframe */
 iframe {
     width: 100%;
     height: 600px;
@@ -61,49 +62,71 @@ iframe {
     border: none;
 }
 
-/* Make sure content doesn't overlap and is centered */
-.main-content, .console-container {
-    margin-left: 250px; /* Give space for sidebar */
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* Console Management Page Specific Styling */
-.console-container {
-    margin-left: 250px; /* Ensure no overlap with sidebar */
-    padding: 20px;
-    max-width: 1000px;
-    margin-top: 50px;
-    background-color: #1d1d1d;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Sidebar and Main Content Layout */
+/* Sidebar and content layout */
 #wrapper {
     display: flex;
     justify-content: space-between;
 }
 
 #sidebar {
-    flex: 0 0 250px; /* Fixed width for sidebar */
+    flex: 0 0 250px;
 }
 
 #console-container {
-    flex: 1; /* Allow content to take up the remaining space */
+    flex: 1;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     #sidebar {
-        width: 200px; /* Reduce sidebar width on smaller screens */
+        width: 200px;
+        transform: translateX(-100%); /* Hide sidebar by default */
+        position: fixed;
+        z-index: 10; /* Place sidebar above content */
     }
-    
+
+    #sidebar.active {
+        transform: translateX(0); /* Show sidebar when active */
+    }
+
     #console-container {
-        margin-left: 200px; /* Adjust content for smaller sidebar */
+        margin-left: 0;
+        max-width: 100%;
+        padding: 10px;
     }
 
     iframe {
-        height: 400px; /* Adjust iframe size for smaller screens */
+        height: 400px;
+    }
+
+    #sidebar h2 {
+        font-size: 1.2em; /* Adjust heading size */
+    }
+
+    #sidebar a {
+        font-size: 1em; /* Adjust link font size */
+        padding: 10px;
+    }
+}
+
+/* Menu toggle button for mobile */
+#menu-toggle {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 11;
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    #menu-toggle {
+        display: block; /* Show menu toggle on small screens */
     }
 }
