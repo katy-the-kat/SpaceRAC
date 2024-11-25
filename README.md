@@ -1,12 +1,15 @@
 # SpaceRAC-D9 Server Management Panel
 
-**SpaceRAC-D9** is a lightweight web-based server management panel built with Flask. It provides real-time server information, management tools, and an integrated console using [tmate](https://tmate.io/) or Gotty/Other-Web-Based-Terminal for remote access. 
+**SpaceRAC-D9** is a lightweight web-based server management panel built with Flask. It provides real-time server information, management tools, and an integrated console using [tmate](https://tmate.io/) or Gotty/Other-Web-Based-Terminal for remote access, And its unddosable with built-in ddos protection.
 
 --- 
 
 If your thinking this is not legit and its a virus? Then we can host the SpaceRAC for you! At https://discord.gg/wix,
 
-Demo for SpaceRAC: https://demo.is-a.space
+Demo for SpaceRAC:
+- URL: https://demo.is-a.space
+- Password: demo
+- Username: demo
 
 Dashboard
 ![Dashboard](https://github.com/user-attachments/assets/4c486679-1bf1-453e-aa4d-f4eccb27e1c1)
@@ -35,7 +38,7 @@ And we will add more stuff with your help
 
 ### Prerequisites
 - **Python 3.10+**
-- **Pip**
+- **Pip3**
 
 ### Installation
 
@@ -45,7 +48,7 @@ And we will add more stuff with your help
    ```
 
 3. **Set Environment Variables**
-   Go in `app.py` and set the variables, You'll most likely need tmate link.
+   Go in `app.py` and set the variables, You'll most likely need tmate link. (Its recommanded to use gotty)
    ```ini
    TMATE_LINK=https://tmate.io/t/your-session-id
    ```
