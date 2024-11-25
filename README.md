@@ -1,6 +1,6 @@
 # SpaceRAC-D9 Server Management Panel
 
-**SpaceRAC-D9** is a lightweight web-based server management panel built with Flask. It provides real-time server information, management tools, and an integrated console using [tmate](https://tmate.io/) for remote access. 
+**SpaceRAC-D9** is a lightweight web-based server management panel built with Flask. It provides real-time server information, management tools, and an integrated console using [tmate](https://tmate.io/) or Gotty/Other-Web-Based-Terminal for remote access. 
 
 ---
 
