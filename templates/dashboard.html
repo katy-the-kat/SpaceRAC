@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Server Dashboard</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <button id="menu-toggle" onclick="toggleSidebar()">☰</button>
 
     <div id="wrapper">
+        <!-- Sidebar -->
         <div id="sidebar">
             <h2>SPR-D9</h2>
             <a href="{{ url_for('dashboard') }}">Dashboard</a>
@@ -22,6 +23,7 @@
         </div>
         <div id="main-content">
             {% block content %}
+            <!-- Dashboard Content goes here -->
             <h1 class="dashboard-title">Server Dashboard</h1>
             <h2 class="greeting">Hey, Admin!</h2>
             <p class="welcome-text">Welcome to your SPR-D9 Server Panel! Here is some info you can look at:</p>
