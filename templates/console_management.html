@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="/static/stylecon.css">
 </head>
 <body>
+    <button id="menu-toggle" onclick="toggleSidebar()">☰</button>
+
     <div id="wrapper">
+        <!-- Sidebar -->
         <div id="sidebar">
             <h2>SPR-D9</h2>
             <a href="{{ url_for('dashboard') }}">Dashboard</a>
@@ -15,14 +18,18 @@
             <a href="https://discord.gg/wix">Help</a>
             <a href="https://discord.gg/wix">Discord</a>
             <a href="https://github.com/katy-the-kat/SpaceRAC">Github</a>
-            <a href="https://demo.is-a.space>Demo</a>
+            <a href="https://demo.is-a.space">Demo</a>
             <a href="{{ url_for('logout') }}">Logout</a>
         </div>
 
         <div id="console-container">
-            <iframe src="{{ tmate_link }}" width="100%" height="500" frameborder="0" style="border-radius: 10px; border: none;"></iframe>
+            <iframe src="{{ tmate_link }}" width="100%" height="500" frameborder="0"></iframe>
         </div>
     </div>
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
-
