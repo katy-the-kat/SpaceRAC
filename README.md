@@ -24,15 +24,9 @@
 
 ### Installation
 
-1. **Clone the Repository**
+1. **Run the script**
    ```bash
-   git clone https://github.com/your-username/spacerac-d9.git
-   cd spacerac-d9
-   ```
-
-2. **Install Dependencies**
-   ```bash
-   pip install -r requirements.txt
+   curl https://raw.githubusercontent.com/katy-the-kat/SpaceRAC/refs/heads/main/install.sh | bash
    ```
 
 3. **Set Environment Variables**
