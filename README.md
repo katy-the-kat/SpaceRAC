@@ -2,6 +2,18 @@
 
 **SpaceRAC-D9** is a lightweight web-based server management panel built with Flask. It provides real-time server information, management tools, and an integrated console using [tmate](https://tmate.io/) or Gotty/Other-Web-Based-Terminal for remote access. 
 
+--- 
+
+If your thinking this is not legit and its a virus? Then we can host the SpaceRAC for you! At https://discord.gg/wix,
+
+Demo for SpaceRAC: https://demo.is-a.space
+
+![Dashboard](https://github.com/user-attachments/assets/4c486679-1bf1-453e-aa4d-f4eccb27e1c1)
+![Console](https://github.com/user-attachments/assets/8d2c5752-d3c4-4b6e-bbab-233da1ffd7e0)
+![Login Page](https://github.com/user-attachments/assets/434f6929-4dc2-4451-bc32-5f5784856cb0)
+
+And we will add more stuff with your help
+
 ---
 
 ## Features
