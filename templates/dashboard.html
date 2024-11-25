@@ -1,124 +1,67 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <button id="menu-toggle" onclick="toggleSidebar()">☰</button>
 
-{% block content %}
-<h1 class="dashboard-title">Server Dashboard</h1>
-<h2 class="greeting">Hey, Admin!</h2>
-<p class="welcome-text">Welcome to your SPR-D9 Server Panel! Here is some info you can look at:</p>
+    <div id="wrapper">
+        <div id="sidebar">
+            <h2>SPR-D9</h2>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('manage_console') }}">Console</a>
+            <a href="https://discord.gg/wix">Help</a>
+            <a href="https://discord.gg/wix">Discord</a>
+            <a href="https://github.com/katy-the-kat/SpaceRAC">Github</a>
+            <a href="https://demo.is-a.space">Demo</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+        <div id="main-content">
+            {% block content %}
+            <h1 class="dashboard-title">Server Dashboard</h1>
+            <h2 class="greeting">Hey, Admin!</h2>
+            <p class="welcome-text">Welcome to your SPR-D9 Server Panel! Here is some info you can look at:</p>
 
-<div class="server-info">
-    <ul>
-        <li><strong>Server Name:</strong> {{ server_info.name }}</li>
-        <li><strong>Status:</strong> Online / Healthy</li>
-        <li><strong>Uptime:</strong> {{ server_info.uptime }}</li>
-        <li><strong>Model:</strong> {{ server_info.model }}</li>
-        <li><strong>CPU:</strong> {{ server_info.cpu }} </li>
-        <li><strong>RAM:</strong> {{ server_info.ram }} </li>
-        <li><strong>Operating System:</strong> {{ server_info.os }} </li>
-        <li><strong>OS Version:</strong> {{ server_info.osver }} </li>
-        <li><strong>SPRAC Firmware Version:</strong> 9.00.00.00</li>
-        <li><strong>IP Address PRI:</strong> {{ server_info.ipl }} </li>
-        <li><strong>IP Address PUB:</strong> {{ server_info.ipp }} </li>
-        <li><strong>SpaceRAC-D9 URL:</strong> 0.0.0.0:8080</li>
-        <li><strong>License:</strong> D9-Free</li>
-    </ul>
-</div>
+            <div class="server-info">
+                <ul>
+                    <li><strong>Server Name:</strong> {{ server_info.name }}</li>
+                    <li><strong>Status:</strong> Online / Healthy</li>
+                    <li><strong>Uptime:</strong> {{ server_info.uptime }}</li>
+                    <li><strong>Model:</strong> {{ server_info.model }}</li>
+                    <li><strong>CPU:</strong> {{ server_info.cpu }} </li>
+                    <li><strong>RAM:</strong> {{ server_info.ram }} </li>
+                    <li><strong>Operating System:</strong> {{ server_info.os }} </li>
+                    <li><strong>OS Version:</strong> {{ server_info.osver }} </li>
+                    <li><strong>SPRAC Firmware Version:</strong> 9.00.00.00</li>
+                    <li><strong>IP Address PRI:</strong> {{ server_info.ipl }} </li>
+                    <li><strong>IP Address PUB:</strong> {{ server_info.ipp }} </li>
+                    <li><strong>SpaceRAC-D9 URL:</strong> 0.0.0.0:8080</li>
+                    <li><strong>License:</strong> D9-Free</li>
+                </ul>
+            </div>
 
-<h3 class="tasks-title">Recent Tasks:</h3>
-<ul class="task-list">
-    <li><span class="task-time">2024-11-24 3:35</span> - Reload SpaceRAC</li>
-    <li><span class="task-time">2024-11-24 3:34</span> - Console</li>
-    <li><span class="task-time">2024-11-24 3:33</span> - Console</li>
-    <li><span class="task-time">2024-11-24 3:33</span> - Install of Ubuntu 22.04 LTS</li>
-    <li><span class="task-time">2024-11-24 3:33</span> - Install of SpaceRAC</li>
-    <li><span class="task-time">2024-11-24 3:29</span> - No logs</li>
-    <li><span class="task-time">2024-11-24 3:28</span> - No logs</li>
-    <li><span class="task-time">2024-11-24 3:20</span> - No logs</li>
-</ul>
-
-<style>
-    /* Dashboard Styling */
-    .dashboard-title {
-        font-size: 2.5em;
-        color: #333;
-        margin-bottom: 10px;
-    }
-
-    .greeting {
-        font-size: 1.8em;
-        color: #4CAF50;
-        margin-bottom: 20px;
-    }
-
-    .welcome-text {
-        font-size: 1.1em;
-        color: #555;
-        margin-bottom: 20px;
-    }
-
-    .server-info {
-        background-color: #f9f9f9;
-        padding: 20px;
-        border-radius: 8px;
-        margin-bottom: 30px;
-    }
-
-    .server-info ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    .server-info li {
-        font-size: 1.2em;
-        margin-bottom: 10px;
-    }
-
-    .server-info li strong {
-        color: #007BFF;
-    }
-
-    .tasks-title {
-        font-size: 1.5em;
-        color: #333;
-        margin-bottom: 10px;
-    }
-
-    .task-list {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    .task-list li {
-        font-size: 1.1em;
-        margin-bottom: 10px;
-    }
-
-    .task-time {
-        font-weight: bold;
-        color: #007BFF;
-    }
-
-    /* Responsive Styling */
-    @media (max-width: 768px) {
-        .dashboard-title {
-            font-size: 2em;
+            <h3 class="tasks-title">Recent Tasks:</h3>
+            <ul class="task-list">
+                <li><span class="task-time">2024-11-24 3:35</span> - Reload SpaceRAC</li>
+                <li><span class="task-time">2024-11-24 3:34</span> - Console</li>
+                <li><span class="task-time">2024-11-24 3:33</span> - Console</li>
+                <li><span class="task-time">2024-11-24 3:33</span> - Install of Ubuntu 22.04 LTS</li>
+                <li><span class="task-time">2024-11-24 3:33</span> - Install of SpaceRAC</li>
+                <li><span class="task-time">2024-11-24 3:29</span> - No logs</li>
+                <li><span class="task-time">2024-11-24 3:28</span> - No logs</li>
+                <li><span class="task-time">2024-11-24 3:20</span> - No logs</li>
+            </ul>
+            {% endblock %}
+        </div>
+    </div>
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
         }
-
-        .greeting {
-            font-size: 1.5em;
-        }
-
-        .welcome-text {
-            font-size: 1em;
-        }
-
-        .server-info ul {
-            padding-left: 15px;
-        }
-
-        .task-list li {
-            font-size: 1em;
-        }
-    }
-</style>
-{% endblock %}
-
+    </script>
+</body>
+</html>
