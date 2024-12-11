@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_socketio import SocketIO
+from secrets import token_urlsafe
 
 app = Flask(__name__)
 app.secret_key = 'donteditthis'
@@ -20,38 +21,79 @@ server_info = {
     'osver': '22.04',
 }
 
+authtokens = {}
+
+class InvalidAuthtokenException(Exception): ...
+
+class AuthtokenMetadata:
+    def __init__(self, user: str):
+        self.user = user
+class Authentication:
+    _gentoken = lambda: token_urlsafe(16)
+    def createauthtoken(user: str) -> str:
+        token = Authentication._gentoken()
+        authtokens[token] = AuthtokenMetadata(user)
+        return token
+    def verifyauthtoken(authtoken: str) -> AuthtokenMetadata:
+        meta = authtokens.get(authtoken)
+        if not meta:
+            raise InvalidAuthtokenException
+        else:
+            return meta
+    
+
+
+
 @app.route('/')
 def index():
-    if not session.get('logged_in'):
+    if not session.get('authtoken'):
+        return redirect(url_for('login'))
+    try:
+        Authentication.verifyauthtoken(session.get('authtoken'))
+    except:
         return redirect(url_for('login'))
     return redirect(url_for('dashboard'))
+        
+    
+    
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        if not users.get(username):
+            return 'User does not exist.', 401
         if users.get(username) == password:
-            session['logged_in'] = True
+            session['authtoken'] = Authentication.createauthtoken(username)
             return redirect(url_for('dashboard'))
-        return 'Invalid credentials', 403
+        else:
+            return 'Invalid credentials', 403
     return render_template('login.html')
 
 @app.route('/dashboard')
 def dashboard():
-    if not session.get('logged_in'):
+    if not session.get('authtoken'):
         return redirect(url_for('login'))
-    return render_template('dashboard.html', server_info=server_info)
+    try:
+        user: str = Authentication.verifyauthtoken(session.get('authtoken')).user
+    except:
+        return redirect(url_for('login'))
+    return render_template('dashboard.html', server_info=server_info, user=user)
 
 @app.route('/console-management')
 def manage_console():
-    if not session.get('logged_in'):
+    if not session.get('authtoken'):
+        return redirect(url_for('login'))
+    try:
+        Authentication.verifyauthtoken(session.get('authtoken'))
+    except:
         return redirect(url_for('login'))
     return render_template('console_management.html', tmate_link=tmate_link)
 
 @app.route('/logout')
 def logout():
-    session.pop('logged_in', None)
+    session.pop('authtoken', None)
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
