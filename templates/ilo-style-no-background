@@ -1,0 +1,102 @@
+{% block content %}
+<div class="login-container">
+    <h2 class="login-title">Server Login</h2>
+    <form method="POST" class="login-form">
+        <div class="form-group-inline">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required class="form-input-inline">
+        </div>
+        <div class="form-group-inline">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required class="form-input-inline">
+        </div>
+        <div class="button-container">
+            <button type="submit" class="login-button">Login</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    /* Importing Google Font */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+    /* General Page Styling */
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #dcdcdc;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100vh;
+    }
+
+    /* Login Container */
+    .login-container {
+        background-color: #f4f4f4;
+        border: 1px solid #a0a0a0;
+        padding: 20px 40px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        text-align: left;
+        min-width: 450px;
+        margin-left: 5%;
+    }
+
+    .login-title {
+        font-size: 1.5em;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    /* Form Alignment: Inline, like older UI */
+    .form-group-inline {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .form-group-inline label {
+        font-size: 1.1em;
+        color: #333;
+        flex: 0 0 120px; /* Aligns labels with fixed width */
+    }
+
+    .form-input-inline {
+        padding: 5px;
+        font-size: 1em;
+        border: 1px solid #a0a0a0;
+        border-radius: 2px;
+        width: 250px;
+        box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+        outline: none;
+        background-color: #fff;
+    }
+
+    .form-input-inline:focus {
+        border-color: #007BFF;
+    }
+
+    /* Login Button */
+    .button-container {
+        text-align: right;
+        margin-top: 15px;
+    }
+
+    .login-button {
+        padding: 5px 15px;
+        font-size: 1em;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007BFF;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+    .login-button:hover {
+        background-color: #0056b3;
+    }
+</style>
+{% endblock %}
