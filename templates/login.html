@@ -17,68 +17,67 @@
 </div>
 
 <style>
-    /* General Page Styling */
     body {
         font-family: 'Source Code Pro', monospace;
         margin: 0;
         padding: 0;
         background-color: #222;
         display: flex;
-        justify-content: flex-end; /* Align content to the right */
+        justify-content: flex-end;
         align-items: center;
         height: 100vh;
     }
 
-    /* Login Container */
     .login-container {
-        background-color: #1a1a1a;
-        border: 1px solid #a0a0a0;
-        padding: 20px 40px;
+        background-color: #333;
+        border: 1px solid #444;
+        padding: 5px 40px; /* Reduced top and bottom padding */
         box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         text-align: left;
         min-width: 450px;
-        margin-right: 5%; /* Add right margin for spacing */
+        margin-right: 5%;
+        height: 180px; /* Reduced height for a thinner box */
     }
 
     .login-title {
         font-size: 1.5em;
         color: #56D536;
-        margin-bottom: 20px;
+        margin-bottom: 8px; /* Smaller margin to keep the content compact */
     }
 
-    /* Form Alignment: Inline */
     .form-group-inline {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 10px;
+        margin-bottom: 8px; /* Reduced spacing between form elements */
     }
 
     .form-group-inline label {
         font-size: 1.1em;
         color: #ddd;
-        flex: 0 0 120px; /* Aligns labels with fixed width */
+        flex: 0 0 120px;
     }
 
     .form-input-inline {
-        padding: 5px;
+        padding: 8px;
         font-size: 1em;
-        border: 1px solid #a0a0a0;
-        border-radius: 2px;
+        border: 1px solid #666;
+        border-radius: 4px;
         width: 250px;
-        box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3);
         outline: none;
-        background-color: #fff;
+        background-color: #444;
+        color: #ddd;
     }
 
     .form-input-inline:focus {
         border-color: #56D536;
+        background-color: #555;
     }
 
-    /* Login Button */
     .button-container {
         text-align: right;
-        margin-top: 15px;
+        margin-top: 5px; /* Reduced margin for the button */
     }
 
     .login-button {
