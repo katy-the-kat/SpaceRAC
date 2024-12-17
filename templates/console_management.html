@@ -3,32 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server Console</title>
-    <link rel="stylesheet" href="/static/stylecon.css">
+    <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <button id="menu-toggle" onclick="toggleSidebar()">☰</button>
-
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <div id="sidebar">
-            <h2>SPR-D9</h2>
-            <a href="{{ url_for('dashboard') }}">Dashboard</a>
-            <a href="{{ url_for('manage_console') }}">Console</a>
-            <a href="https://discord.gg/kvm">Help</a>
-            <a href="https://discord.gg/kvm">Discord</a>
-            <a href="https://github.com/katy-the-kat/SpaceRAC">Github</a>
-            <a href="{{ url_for('logout') }}">Logout</a>
-        </div>
-
-        <div id="console-container">
-            <iframe src="{{ tmate_link }}" width="100%" height="500" frameborder="0"></iframe>
-        </div>
+    <div class="sidebar">
+        <h2>SPR-D9</h2>
+        <a href="{{ url_for('dashboard') }}" class="sidebar-link">Dashboard</a>
+        <a href="{{ url_for('manage_console') }}" class="sidebar-link">Console</a>
+        <a href="https://discord.gg/kvm" class="sidebar-link">Help</a>
+        <a href="https://discord.gg/kvm" class="sidebar-link">Discord</a>
+        <a href="https://github.com/katy-the-kat/SpaceRAC" class="sidebar-link">Github</a>
+        <a href="{{ url_for('logout') }}" class="sidebar-link logout-link">Logout</a>
     </div>
-    <script>
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('active');
+
+    <div class="main-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <style>
+        /* Sidebar Styling */
+        body {
+            font-family: 'Source Code Pro', monospace;
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            display: flex;
+            min-height: 100vh;
         }
-    </script>
+
+        .sidebar {
+            background-color: #1a1a1a;
+            color: #ddd;
+            width: 250px;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #56D536;
+        }
+
+        .sidebar-link {
+            text-decoration: none;
+            color: #ccc;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar-link:hover {
+            background-color: #3d3d3d;
+            color: #fff;
+        }
+
+        .logout-link {
+            margin-top: auto;
+            color: #FF4D4D; /* Red color for logout */
+        }
+
+        .logout-link:hover {
+            background-color: #5A5A5A;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .sidebar h2 {
+                font-size: 1.8em;
+            }
+
+            .sidebar-link {
+                font-size: 1em;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
 </body>
 </html>
+root@c21bc2792e0f:/SpaceRAC/templates# ls
+base.html  console_management.html  dashboard.html  login.html  old
+root@c21bc2792e0f:/SpaceRAC/templates# cat console_management.html 
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Console Content -->
+<div id="console-container">
+    <iframe src="{{ tmate_link }}" width="100%" height="600" frameborder="0"></iframe>
+</div>
+{% endblock %}
+
+<style>
+    /* Console Container Styling */
+    #console-container {
+        padding: 20px;
+        flex-grow: 1;
+        background-color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+    }
+
+    iframe {
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+    }
+</style>
