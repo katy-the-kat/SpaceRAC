@@ -1,17 +1,12 @@
 
-### Last Update: 2024 - 12 - 17 \ The iLO Style
-# SpaceRAC-D9 Server Management Panel
+### Last Update: 24/12/17 D10-Style
+# SpaceRAC-D10 Server Management Panel
 
-**SpaceRAC-D9** is a lightweight web-based server management panel built with Flask. It provides real-time server information, management tools, and an integrated console using [tmate](https://tmate.io/) or Gotty/Other-Web-Based-Terminal for remote access, And its unddosable with built-in ddos protection.
+**SpaceRAC-D10** is a lightweight web-based server management panel built with Flask. It provides real-time server information, management tools, and an integrated console using [tmate](https://tmate.io/) or Gotty/Other-Web-Based-Terminal for remote access, And its unddosable with built-in ddos protection.
 
 --- 
 
-If your thinking this is not legit and its a virus? Then we can host the SpaceRAC for you! At https://discord.gg/wix,
-
-Demo for SpaceRAC:
-- URL: https://demo.is-a.space
-- Password: demo
-- Username: demo
+If your thinking this is not legit and its a virus? Then we can host the SpaceRAC for you! At https://discord.gg/kvm,
 
 Dashboard
 ![Dashboard](https://github.com/user-attachments/assets/4c486679-1bf1-453e-aa4d-f4eccb27e1c1)
