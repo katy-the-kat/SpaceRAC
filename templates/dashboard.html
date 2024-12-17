@@ -1,35 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div id="console-container">
-    <iframe src="{{ tmate_link }}" width="100%" height="600" frameborder="0"></iframe>
-</div>
-{% endblock %}
-
-<style>
-    #console-container {
-        padding: 20px;
-        flex-grow: 1;
-        background-color: #333;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        width: 100%;
-    }
-
-    iframe {
-        border-radius: 10px;
-        width: 100%;
-        height: 100%;
-    }
-</style>
-root@c21bc2792e0f:/SpaceRAC/templates# ls
-base.html  console_management.html  dashboard.html  login.html  old
-root@c21bc2792e0f:/SpaceRAC/templates# cat dashboard.html 
-{% extends 'base.html' %}
-
-{% block content %}
 <h1 class="dashboard-title">Server Dashboard</h1>
 <h2 class="greeting">Hello, {{ user }}!</h2>
 <p class="welcome-text">Welcome to your SPR-D9 Server Panel! Here is some info you can look at:</p>
@@ -66,6 +37,7 @@ root@c21bc2792e0f:/SpaceRAC/templates# cat dashboard.html
 </ul>
 
 <style>
+    /* iLO-like Dashboard Styling */
     body {
         background-color: #222;
         color: #ddd;
@@ -114,7 +86,7 @@ root@c21bc2792e0f:/SpaceRAC/templates# cat dashboard.html
     }
 
     .status-online {
-        color: #5BFF61;
+        color: #5BFF61; /* green for online status */
         font-weight: bold;
     }
 
@@ -137,9 +109,10 @@ root@c21bc2792e0f:/SpaceRAC/templates# cat dashboard.html
 
     .task-time {
         font-weight: bold;
-        color: #0099FF;
+        color: #0099FF; /* Blue color for task times */
     }
 
+    /* Additional iLO-like Features */
     .status-bar {
         background-color: #444;
         padding: 10px;
