@@ -8,17 +8,17 @@
 <div class="server-info">
     <ul>
         <li><strong>Server Name:</strong> {{ server_info.name }}</li>
-        <li><strong>Status:</strong> Online / Healthy</li>
+        <li><strong>Status:</strong> <span class="status-online">Online</span></li>
         <li><strong>Uptime:</strong> {{ server_info.uptime }}</li>
         <li><strong>Model:</strong> {{ server_info.model }}</li>
-        <li><strong>CPU:</strong> {{ server_info.cpu }} </li>
-        <li><strong>GPU:</strong> {{ server_info.gpu }} </li>
-        <li><strong>RAM:</strong> {{ server_info.ram }} </li>
-        <li><strong>Operating System:</strong> {{ server_info.os }} </li>
-        <li><strong>OS Version:</strong> {{ server_info.osver }} </li>
+        <li><strong>CPU:</strong> {{ server_info.cpu }}</li>
+        <li><strong>GPU:</strong> {{ server_info.gpu }}</li>
+        <li><strong>RAM:</strong> {{ server_info.ram }}</li>
+        <li><strong>Operating System:</strong> {{ server_info.os }}</li>
+        <li><strong>OS Version:</strong> {{ server_info.osver }}</li>
         <li><strong>SPRAC Firmware Version:</strong> 9.00.00.00</li>
-        <li><strong>IP Address PRI:</strong> {{ server_info.ipl }} </li>
-        <li><strong>IP Address PUB:</strong> {{ server_info.ipp }} </li>
+        <li><strong>IP Address PRI:</strong> {{ server_info.ipl }}</li>
+        <li><strong>IP Address PUB:</strong> {{ server_info.ipp }}</li>
         <li><strong>SpaceRAC-D9 URL:</strong> 0.0.0.0:8080</li>
         <li><strong>License:</strong> D9-Free</li>
     </ul>
@@ -37,30 +37,37 @@
 </ul>
 
 <style>
-    /* Dashboard Styling */
+    /* iLO-like Dashboard Styling */
+    body {
+        background-color: #222;
+        color: #ddd;
+        font-family: Arial, sans-serif;
+    }
+
     .dashboard-title {
         font-size: 2.5em;
-        color: #333;
-        margin-bottom: 10px;
+        color: #fff;
+        margin-bottom: 20px;
     }
 
     .greeting {
         font-size: 1.8em;
-        color: #4CAF50;
+        color: #56D536;
         margin-bottom: 20px;
     }
 
     .welcome-text {
         font-size: 1.1em;
-        color: #555;
+        color: #aaa;
         margin-bottom: 20px;
     }
 
     .server-info {
-        background-color: #f9f9f9;
+        background-color: #333;
         padding: 20px;
         border-radius: 8px;
         margin-bottom: 30px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
 
     .server-info ul {
@@ -70,16 +77,22 @@
 
     .server-info li {
         font-size: 1.2em;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
+        color: #ccc;
     }
 
     .server-info li strong {
-        color: #007BFF;
+        color: #56D536;
+    }
+
+    .status-online {
+        color: #5BFF61; /* green for online status */
+        font-weight: bold;
     }
 
     .tasks-title {
         font-size: 1.5em;
-        color: #333;
+        color: #fff;
         margin-bottom: 10px;
     }
 
@@ -91,21 +104,46 @@
     .task-list li {
         font-size: 1.1em;
         margin-bottom: 10px;
+        color: #aaa;
     }
 
     .task-time {
         font-weight: bold;
-        color: #007BFF;
+        color: #0099FF; /* Blue color for task times */
+    }
+
+    /* Additional iLO-like Features */
+    .status-bar {
+        background-color: #444;
+        padding: 10px;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .status-bar span {
+        padding: 5px 10px;
+        margin-right: 10px;
+        border-radius: 5px;
+        background-color: #56D536;
+        color: #222;
+    }
+
+    .status-bar span.error {
+        background-color: #FF4D4D;
+    }
+
+    .status-bar span.warning {
+        background-color: #FF9933;
     }
 
     /* Responsive Styling */
     @media (max-width: 768px) {
         .dashboard-title {
-            font-size: 2em;
+            font-size: 2.2em;
         }
 
         .greeting {
-            font-size: 1.5em;
+            font-size: 1.6em;
         }
 
         .welcome-text {
