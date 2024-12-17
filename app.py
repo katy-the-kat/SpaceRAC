@@ -10,14 +10,15 @@ tmate_link = 'https://tmate.io/t/x'
 # To get the tmate link do `apt install tmate && tmate -F &&` and copying the websession link.
 
 server_info = {
-    'name': 'Personal PowerEdge',
-    'uptime': '2days and 20mins',
+    'name': 'Personal',
+    'uptime': 'Unknown',
     'ipl': '10.0.0.1',
     'ipp': '0.0.0.0',
     'os': 'ubuntu',
     'model': 'Generic X86-64 SR System',
     'ram': '32GB',
     'cpu': 'Generic AMD/Intel (96) @ 2.4Ghz',
+    'gpu': 'Stupid iGPU',
     'osver': '22.04',
 }
 
