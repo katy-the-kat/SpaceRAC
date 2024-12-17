@@ -1,38 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div id="console-container">
-    <iframe src="{{ tmate_link }}" width="100%" height="600" frameborder="0"></iframe>
-</div>
-{% endblock %}
-
-<style>
-    #console-container {
-        padding: 20px;
-        flex-grow: 1;
-        background-color: #333;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        width: 100%;
-    }
-
-    iframe {
-        border-radius: 10px;
-        width: 100%;
-        height: 100%;
-    }
-</style>
-root@c21bc2792e0f:/SpaceRAC/templates# ls
-base.html  console_management.html  dashboard.html  login.html  old
-root@c21bc2792e0f:/SpaceRAC/templates# cat dashboard.html 
-{% extends 'base.html' %}
-
-{% block content %}
 <h1 class="dashboard-title">Server Dashboard</h1>
 <h2 class="greeting">Hello, {{ user }}!</h2>
-<p class="welcome-text">Welcome to your SPR-D9 Server Panel! Here is some info you can look at:</p>
+<p class="welcome-text">Welcome to your Server Panel! Here is some info you can look at:</p>
 
 <div class="server-info">
     <ul>
